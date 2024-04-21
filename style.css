@@ -6,7 +6,7 @@
 
 *{
     margin: 0;
-    pad: 0;
+    padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
@@ -23,12 +23,12 @@ img{
     margin: 0 auto;
 }
 
-.header{
+.header {
+    min-height: 100vh; /* Ajusta la altura mínima al 100% de la altura de la ventana gráfica */
     display: flex;
     align-items: center;
-    min-height: 80vh;
+    justify-content: center; /* Centra horizontalmente el contenido */
     background-color: #F5F5F5;
-    padding: 70px 0;
 }
 
 .menu{
@@ -111,16 +111,23 @@ th, td{
 }
 
 .header-content{
+    margin-top: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex: 1;
-    padding: 0 200px;
+    padding: 0 200px;   
+    margin: 0;
 }
 
 .header-img{
+    
     flex-basis: 50%;
     text-align: center;
+}
+.header-img img{
+    height: 600px;
+    padding-top: 50px;
 }
 
 .header-txt{
@@ -352,6 +359,7 @@ th, td{
 }
 
 @media (max-width:991px){
+
     .menu{
         padding: 20px;
     }
@@ -415,9 +423,26 @@ th, td{
     .product h2{
         margin-bottom: 30px;
     }
+    @keyframes show{
+        from{
+            opacity: 0;
+            scale: 25%;
+        }
+        to{
+            opacity: 1;
+            scale: 100%;
+        }
+    }
+    
     .product-content{
         grid-template-columns: repeat(1,1fr);
         gap: 30px;
+        view-timeline-name: --image;
+        view-timeline-axis: block;
+        animation-timeline: --image;
+        animation-name: show;
+        animation-range: entry 25% cover 40%;
+        animation-fill-mode: both;
 
     }
 
@@ -425,6 +450,12 @@ th, td{
         width: 200px;
         height: 280px;
         margin-top: 30px;
+        view-timeline-name: --image;
+        view-timeline-axis: block;
+        animation-timeline: --image;
+        animation-name: show;
+        animation-range: entry 25% cover 40%;
+        animation-fill-mode: both;
         
     }
     .icons{
